@@ -83,4 +83,16 @@ TBD
 
 ## Timeline of Work
 
+**Day 1 3/28/24:** Establish group, brainstorm ideas, set up GitHub repo, create starter code & initial README. Faith to review the API, Sean to review Material UI (https://mui.com/material-ui/) and create wireframes.
+
+**Day 2 4/1/24:** 
+
+**Day 3 4/2/24:**
+
+**Day 4 4/4/24:**
+
+**Day 5 4/8/24:**
+
+**Day 6 4/9/24:** Stakeholder Presentation & Demo
+
 ## Stakeholder Presentation
