@@ -80,7 +80,38 @@ The following members of the 2023-2024 ASU Coding Bootcamp participated on this 
 TBD
 
 ## Initial Wireframes
+Login Page ![Login](<./wireframes/Login.png>)
+
+
+
+![Home](<./img/Screenshot 2024-04-01 at 7.55.39 PM.png>)
+**Home/Welcome**
+
+![Login](<./img/Screenshot 2024-04-01 at 7.56.19 PM.png>)
+**Login**
+
+![Create](<./img/Screenshot 2024-04-01 at 7.56.52 PM.png>)
+**Create Account**
+
+![Account](<./img/Screenshot 2024-04-01 at 7.57.21 PM.png>)
+**View/Edit Account**
+
+![Built](<./img/Screenshot 2024-04-01 at 7.58.14 PM.png>)
+**Built (Brick Archive)**
+
+![Wish](<./img/Screenshot 2024-04-01 at 7.57.48 PM.png>)
+**Wishlist (Brick Envy)**
 
 ## Timeline of Work
 
+Day 1: Determine project, set up repo, push starter code. Faith to review API and Sean to review MUI documentation and create basic wireframes.
+
+Day 2: Connect repo to Render
+
+
 ## Stakeholder Presentation
+
+Future state ideas:
+- Custom avatars for user profiles
+- Use Lego Stubs for ratings instead of stars
+- 
