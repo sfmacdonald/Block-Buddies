@@ -1,23 +1,39 @@
 const { Schema, model } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 
-const thoughtSchema = new Schema({
-  thoughtText: {
+const setSchema = new Schema({
+  setName: {
     type: String,
-    required: 'You need to leave a thought!',
+    required: 'What is the name of the set you would like to add?',
     minlength: 1,
     maxlength: 280,
     trim: true,
   },
-  thoughtAuthor: {
+  setNumber: {
     type: String,
-    required: true,
+    required: false,
     trim: true,
   },
-  createdAt: {
-    type: Date,
-    default: Date.now,
-    get: (timestamp) => dateFormat(timestamp),
+  setPieces: {
+    type: String,
+    required: 'How many pieces are in the set?',
+    trim: true,
+  },
+  setTheme: {
+    type: String,
+    required: false,
+    trim: true,
+  },
+  builderAge: {
+    type: String,
+    required: false,
+    maxlength: 3,
+    trim: true,
+  },
+  setRating: {
+    type: Number,
+    required: false,
+    trim: true,
   },
   comments: [
     {
@@ -40,6 +56,6 @@ const thoughtSchema = new Schema({
   ],
 });
 
-const Thought = model('Thought', thoughtSchema);
+const Set = model('Set', setSchema);
 
-module.exports = Thought;
+module.exports = Set;
