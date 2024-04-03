@@ -14,6 +14,7 @@ Show off your builds and keep track of your wishlists!
 - [Technologies](#technologies)
 - [Initial Wireframes](#initial-wireframes)
 - [Timeline of Work](#timeline-of-work)
+- [Usage](#usage)
 - [Stakeholder Presentation](#stakeholder-presentation)
 
 # Description
@@ -66,16 +67,16 @@ TBD
 ## Collaboraters
 
 The following members of the 2023-2024 ASU Coding Bootcamp participated on this project:
-- Emily Kline - https://github.com/sourylime
-- Sean MacDonald - https://github.com/sfmacdonald
-- Faith O'Connor - https://github.com/floconno
-- Miguel Rojas - https://github.com/Rojas259
+- Emily Kline: https://github.com/sourylime
+- Sean MacDonald: https://github.com/sfmacdonald
+- Faith O'Connor: https://github.com/floconno
+- Miguel Rojas: https://github.com/Rojas259
 
 ## Technologies
 
 - MERN Stack (MongoDB, Express.js, React, Node.js)
-- Rebrickable API: https://rebrickable.com/api/v3/docs/?key=
 - Material UI
+- Rebrickable API: https://rebrickable.com/api/v3/docs/?key=
 
 ## License
 TBD
@@ -106,7 +107,7 @@ TBD
 
 **Day 2 4/1/24:** Begin connecting project to Render (Sean), work on Client/components & Client/pages (Sean & Emily), work on Server/models (Faith) & Server/seeders and schemas (Miguel).
 
-**Day 3 4/2/24:**
+**Day 3 4/2/24:** Succesfully connected project to Heroku after abandoning Render. Also connected to MongoDB Atlas. Group agreed to abandon use of API - will allow users to manually create database with prompts and will add API as future state idea.
 
 **Day 4 4/4/24:**
 
@@ -114,9 +115,20 @@ TBD
 
 **Day 6 4/9/24:** Stakeholder Presentation & Demo
 
+## Usage
+
+The github repository may be found at https://github.com/sfmacdonald/Block-Buddies
+
+The live URL for the working website deployed via Heroku is https://block-buddies-e3447dd8369c.herokuapp.com
+
+When accessed, the initial landing page should reflect the following image:
+
 ## Stakeholder Presentation
 
+Attached is the stakeholder slide deck presentation with the final MVP product outline:
+
 Future state ideas:
+- Connect to API to make user experience better and return results
 - Custom avatars for user profiles
 - Use Lego Stubs for ratings instead of stars
 - Recommend builds to users based off their profile (previous builds, wishlist, age)
