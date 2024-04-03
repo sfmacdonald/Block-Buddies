@@ -1,35 +1,24 @@
-import { useQuery } from '@apollo/client';
-
-import ThoughtList from '../components/ThoughtList';
-import ThoughtForm from '../components/ThoughtForm';
-
-import { QUERY_THOUGHTS } from '../utils/queries';
+import React from 'react';
+import SearchForm from '../components/SearchForm';
+import SearchResults from '../components/SearchResults';
 
 const Home = () => {
-  const { loading, data } = useQuery(QUERY_THOUGHTS);
-  const thoughts = data?.thoughts || [];
-
   return (
-    <main>
-      <div className="flex-row justify-center">
-        <div
-          className="col-12 col-md-10 mb-3 p-3"
-          style={{ border: '1px dotted #1a1a1a' }}
-        >
-          <ThoughtForm />
-        </div>
-        <div className="col-12 col-md-8 mb-3">
-          {loading ? (
-            <div>Loading...</div>
-          ) : (
-            <ThoughtList
-              thoughts={thoughts}
-              title="Some Feed for Thought(s)..."
-            />
-          )}
-        </div>
+    <div>
+      <h1>Block Search</h1>
+
+      {/* Search Form */}
+      <SearchForm />
+
+      {/* Search Results */}
+      <SearchResults />
+
+      <p>Block Buddies is designed for LEGO set constructors to track their completed builds and wishlist future projects. Builders can manage their profile, create wishlists, track current builds, and interact with other users.</p>
+
+      <div className='image-container'>
+        <img src='../assets/LEGOppl.jpg' alt='LEGO People' />
       </div>
-    </main>
+    </div>
   );
 };
 

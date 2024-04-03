@@ -58,3 +58,17 @@ export const QUERY_ME = gql`
     }
   }
 `;
+
+export const QUERY_BLOCK_SETS = gql`
+  query getBlockSets {
+    blockSets {
+      _id
+      setName
+      setNumber
+      description
+      image
+      author
+    }
+  }
+`;
+
