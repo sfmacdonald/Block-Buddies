@@ -54,3 +54,17 @@ export const ADD_COMMENT = gql`
     }
   }
 `;
+
+export const ADD_BLOCK_SET = gql`
+  mutation addBlockSet($setName: String!, $setNumber: String!, $description: String!, $image: String!, $author: String!) {
+    addBlockSet(setName: $setName, setNumber: $setNumber, description: $description, image: $image, author: $author) {
+      _id
+      setName
+      setNumber
+      description
+      image
+      author
+    }
+  }
+`;
+

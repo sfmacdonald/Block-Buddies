@@ -15,16 +15,7 @@ const Footer = () => {
           </button>
         )}
         <h4>
-          Made with{' '}
-          <span
-            className="emoji"
-            role="img"
-            aria-label="heart"
-            aria-hidden="false"
-          >
-            ❤️
-          </span>{' '}
-          by the Tech Thoughts team.
+          We did it! We made it to the end of Block Buddies!
         </h4>
       </div>
     </footer>
