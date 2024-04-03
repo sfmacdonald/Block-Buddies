@@ -6,14 +6,14 @@ const resolvers = {
     users: async () => {
       return User.find().populate('thoughts');
     },
-    user: async (parent, { username }) => {
+    user: async ({ username }) => {
       return User.findOne({ username }).populate('thoughts');
     },
-    thoughts: async (parent, { username }) => {
+    thoughts: async ({ username }) => {
       const params = username ? { username } : {};
       return Thought.find(params).sort({ createdAt: -1 });
     },
-    thought: async (parent, { thoughtId }) => {
+    thought: async ({ thoughtId }) => {
       return Thought.findOne({ _id: thoughtId });
     },
     me: async (parent, args, context) => {
