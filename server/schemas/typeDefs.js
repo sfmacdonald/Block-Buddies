@@ -1,48 +1,54 @@
 const typeDefs = `
-  type User {
-    _id: ID
-    username: String
-    email: String
-    password: String
-    thoughts: [Thought]!
-  }
+ type User {
+   _id: ID
+   username: String
+   email: String
+   password: String
+   builds: [Build]!
+ }
 
-  type Thought {
-    _id: ID
-    thoughtText: String
-    thoughtAuthor: String
-    createdAt: String
-    comments: [Comment]!
-  }
 
-  type Comment {
-    _id: ID
-    commentText: String
-    commentAuthor: String
-    createdAt: String
-  }
+ type Build {
+   _id: ID
+   buildText: String
+   buildAuthor: String
+   createdAt: String
+   comments: [Comment]!
+ }
 
-  type Auth {
-    token: ID!
-    user: User
-  }
 
-  type Query {
-    users: [User]
-    user(username: String!): User
-    thoughts(username: String): [Thought]
-    thought(thoughtId: ID!): Thought
-    me: User
-  }
+ type Comment {
+   _id: ID
+   commentText: String
+   commentAuthor: String
+   createdAt: String
+ }
 
-  type Mutation {
-    addUser(username: String!, email: String!, password: String!): Auth
-    login(email: String!, password: String!): Auth
-    addThought(thoughtText: String!): Thought
-    addComment(thoughtId: ID!, commentText: String!): Thought
-    removeThought(thoughtId: ID!): Thought
-    removeComment(thoughtId: ID!, commentId: ID!): Thought
-  }
+
+ type Auth {
+   token: ID!
+   user: User
+ }
+
+
+ type Query {
+   users: [User]
+   user(username: String!): User
+   builds(username: String): [Build]
+   build(buildId: ID!): Build
+   me: User
+ }
+
+
+ type Mutation {
+   addUser(username: String!, email: String!, password: String!): Auth
+   login(email: String!, password: String!): Auth
+   addBuild(thoughtText: String!): Build
+   addComment(buildId: ID!, commentText: String!): Build
+   removeBuild(buildId: ID!): Build
+   removeComment(buildId: ID!, commentId: ID!): Build
+ }
 `;
+
 
 module.exports = typeDefs;

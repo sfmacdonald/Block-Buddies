@@ -1,28 +1,31 @@
+
 const { User, Thought } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
+
 
 const resolvers = {
   Query: {
     users: async () => {
-      return User.find().populate('thoughts');
+      return User.find().populate('builds');
     },
     user: async (parent, { username }) => {
-      return User.findOne({ username }).populate('thoughts');
+      return User.findOne({ username }).populate('builds');
     },
     thoughts: async (parent, { username }) => {
       const params = username ? { username } : {};
-      return Thought.find(params).sort({ createdAt: -1 });
+      return Build.find(params).sort({ createdAt: -1 });
     },
-    thought: async (parent, { thoughtId }) => {
-      return Thought.findOne({ _id: thoughtId });
+    thought: async (parent, { buildId }) => {
+      return Build.findOne({ _id: buildId });
     },
     me: async (parent, args, context) => {
       if (context.user) {
-        return User.findOne({ _id: context.user._id }).populate('thoughts');
+        return User.findOne({ _id: context.user._id }).populate('builds');
       }
       throw AuthenticationError;
     },
   },
+
 
   Mutation: {
     addUser: async (parent, { username, email, password }) => {
@@ -33,41 +36,48 @@ const resolvers = {
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 
+
       if (!user) {
         throw AuthenticationError;
       }
 
+
       const correctPw = await user.isCorrectPassword(password);
+
 
       if (!correctPw) {
         throw AuthenticationError;
       }
 
+
       const token = signToken(user);
+
 
       return { token, user };
     },
-    addThought: async (parent, { thoughtText }, context) => {
+    addBuild: async (parent, { buildText }, context) => {
       if (context.user) {
-        const thought = await Thought.create({
-          thoughtText,
-          thoughtAuthor: context.user.username,
+        const build = await Build.create({
+          buildText,
+          buildAuthor: context.user.username,
         });
+
 
         await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { thoughts: thought._id } }
+          { $addToSet: { builds: build._id } }
         );
 
-        return thought;
+
+        return build;
       }
       throw AuthenticationError;
       ('You need to be logged in!');
     },
-    addComment: async (parent, { thoughtId, commentText }, context) => {
+    addComment: async (parent, { buildId, commentText }, context) => {
       if (context.user) {
-        return Thought.findOneAndUpdate(
-          { _id: thoughtId },
+        return Build.findOneAndUpdate(
+          { _id: buildId },
           {
             $addToSet: {
               comments: { commentText, commentAuthor: context.user.username },
@@ -81,26 +91,28 @@ const resolvers = {
       }
       throw AuthenticationError;
     },
-    removeThought: async (parent, { thoughtId }, context) => {
+    removeBuild: async (parent, { buildId }, context) => {
       if (context.user) {
-        const thought = await Thought.findOneAndDelete({
-          _id: thoughtId,
-          thoughtAuthor: context.user.username,
+        const build = await Build.findOneAndDelete({
+          _id: buildId,
+          buildtAuthor: context.user.username,
         });
+
 
         await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $pull: { thoughts: thought._id } }
+          { $pull: { builds: tbuild._id } }
         );
 
-        return thought;
+
+        return build;
       }
       throw AuthenticationError;
     },
-    removeComment: async (parent, { thoughtId, commentId }, context) => {
+    removeComment: async (parent, { buildId, commentId }, context) => {
       if (context.user) {
-        return Thought.findOneAndUpdate(
-          { _id: thoughtId },
+        return Build.findOneAndUpdate(
+          { _id: buildId },
           {
             $pull: {
               comments: {
@@ -116,5 +128,6 @@ const resolvers = {
     },
   },
 };
+
 
 module.exports = resolvers;
