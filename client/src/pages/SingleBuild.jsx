@@ -1,32 +1,21 @@
-// Import the `useParams()` hook
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-
-
 import CommentList from '../components/CommentList';
 import CommentForm from '../components/CommentForm';
-
-
 import { QUERY_SINGLE_BUILD } from '../utils/queries';
 
-
 const SingleBuild = () => {
-    // Use `useParams()` to retrieve value of the route parameter `:profileId`
     const { buildId } = useParams();
-
-
     const { loading, data } = useQuery(QUERY_SINGLE_BUILD, {
-        // pass URL parameter
         variables: { buildId: buildId },
     });
-
-
-    const build = data?.build || {};
-
 
     if (loading) {
         return <div>Loading...</div>;
     }
+
+    const build = data?.build || {};
+
     return (
         <div className="my-3">
             <h3 className="card-header bg-dark text-light p-2 m-0">
@@ -48,8 +37,6 @@ const SingleBuild = () => {
                     {build.buildText}
                 </blockquote>
             </div>
-
-
             <div className="my-5">
                 <CommentList comments={build.comments} />
             </div>
@@ -59,6 +46,5 @@ const SingleBuild = () => {
         </div>
     );
 };
-
 
 export default SingleBuild;
