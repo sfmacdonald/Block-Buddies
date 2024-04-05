@@ -10,9 +10,13 @@ const typeDefs = `
 
  type Build {
    _id: ID
-   buildText: String
+   buildName: String
+   number: String
+   pieces: String
+   theme: String
+   builderAge: String
+   rating: Number
    buildAuthor: String
-   createdAt: String
    comments: [Comment]!
  }
 

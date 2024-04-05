@@ -8,8 +8,13 @@ export const QUERY_USER = gql`
       email
       builds {
         _id
-        buildText
-        createdAt
+        buildName
+        number
+        pieces
+        theme
+        builderAge
+        rating
+        buildAuthor
       }
     }
   }
@@ -17,14 +22,14 @@ export const QUERY_USER = gql`
 
 export const QUERY_BUILDS = gql`
   query getBuilds {
-    thoughts {
+    builds {
       _id
       buildName
-      buildNumber
-      buildPieces
-      buildTheme
+      number
+      pieces
+      theme
       builderAge
-      buildRating
+      rating
       buildAuthor
     }
   }
@@ -35,11 +40,11 @@ export const QUERY_SINGLE_BUILD = gql`
     build(buildId: $buildId) {
       _id
       buildName
-      buildNumber
-      buildPieces
-      buildTheme
+      number
+      pieces
+      theme
       builderAge
-      buildRating
+      rating
       buildAuthor
       comments {
         _id
@@ -60,11 +65,11 @@ export const QUERY_ME = gql`
       builds {
         _id
         buildName
-        buildNumber
-        buildPieces
-        buildTheme
+        number
+        pieces
+        theme
         builderAge
-        buildRating
+        rating
         buildAuthor
       }
     }
@@ -76,10 +81,12 @@ export const QUERY_BLOCK_BUILDS = gql`
     blockBuilds {
       _id
       buildName
-      buildNumber
-      description
-      image
-      author
+      number
+      pieces
+      theme
+      builderAge
+      rating
+      buildAuthor
     }
   }
 `;

@@ -9,17 +9,17 @@ const buildSchema = new Schema({
     maxlength: 280,
     trim: true,
   },
-  buildNumber: {
+  number: {
     type: String,
     required: false,
     trim: true,
   },
-  buildPieces: {
+  pieces: {
     type: String,
     required: 'How many pieces are in the set?',
     trim: true,
   },
-  buildTheme: {
+  theme: {
     type: String,
     required: false,
     trim: true,
@@ -30,7 +30,7 @@ const buildSchema = new Schema({
     maxlength: 3,
     trim: true,
   },
-  buildRating: {
+  rating: {
     type: Number,
     required: false,
     trim: true,

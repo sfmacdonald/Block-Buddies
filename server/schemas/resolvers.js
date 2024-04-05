@@ -11,11 +11,11 @@ const resolvers = {
     user: async (parent, { username }) => {
       return User.findOne({ username }).populate('builds');
     },
-    thoughts: async (parent, { username }) => {
+    builds: async (parent, { username }) => {
       const params = username ? { username } : {};
       return Build.find(params).sort({ createdAt: -1 });
     },
-    thought: async (parent, { buildId }) => {
+    build: async (parent, { buildId }) => {
       return Build.findOne({ _id: buildId });
     },
     me: async (parent, args, context) => {
@@ -55,10 +55,10 @@ const resolvers = {
 
       return { token, user };
     },
-    addBuild: async (parent, { buildName, buildNumber, buildPieces, buildTheme, builderAge, buildRating }, context) => {
+    addBuild: async (parent, { buildName, number, pieces, theme, builderAge, rating }, context) => {
       if (context.user) {
         const build = await Build.create({
-          buildName, buildNumber, buildPieces, buildTheme, builderAge, buildRating,
+          buildName, number, pieces, theme, builderAge, rating,
           buildAuthor: context.user.username,
         });
 
