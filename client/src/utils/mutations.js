@@ -55,12 +55,12 @@ export const ADD_COMMENT = gql`
   }
 `;
 
-export const ADD_BLOCK_SET = gql`
-  mutation addBlockSet($setName: String!, $setNumber: String!, $description: String!, $image: String!, $author: String!) {
-    addBlockSet(setName: $setName, setNumber: $setNumber, description: $description, image: $image, author: $author) {
+export const ADD_BLOCK_BUILD = gql`
+  mutation addBlockBuild($buildName: String!, $buildNumber: String!, $description: String!, $image: String!, $author: String!) {
+    addBlockBuild(buildName: $buildName, buildNumber: $buildNumber, description: $description, image: $image, author: $author) {
       _id
-      setName
-      setNumber
+      buildName
+      buildNumber
       description
       image
       author

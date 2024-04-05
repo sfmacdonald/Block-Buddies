@@ -2,20 +2,20 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 
-import { ADD_BLOCK_SET } from '../../utils/mutations';
-import { QUERY_BLOCK_SETS } from '../../utils/queries';
+import { ADD_BLOCK_BUILD } from '../../utils/mutations';
+import { QUERY_BLOCK_BUILDS } from '../../utils/queries';
 
 import Auth from '../../utils/auth';
 
-const BlockSetForm = () => {
-  const [setName, setSetName] = useState('');
-  const [setNumber, setSetNumber] = useState('');
+const BlockBuildForm = () => {
+  const [buildName, setBuildName] = useState('');
+  const [buildNumber, setBuildNumber] = useState('');
   const [description, setDescription] = useState('');
   const [image, setImage] = useState('');
 
-  const [addBlockSet, { error }] = useMutation(ADD_BLOCK_SET, {
+  const [addBlockBuild, { error }] = useMutation(ADD_BLOCK_BUILD, {
     refetchQueries: [
-      { query: QUERY_BLOCK_SETS }
+      { query: QUERY_BLOCK_BUILDS }
     ]
   });
 
@@ -25,16 +25,16 @@ const BlockSetForm = () => {
     try {
       const { data } = await addBlockSet({
         variables: {
-          setName,
-          setNumber,
+          buildName,
+          buildNumber,
           description,
           image,
           author: Auth.getProfile().data.username
         },
       });
 
-      setSetName('');
-      setSetNumber('');
+      setBuildName('');
+      setBuildNumber('');
       setDescription('');
       setImage('');
     } catch (err) {
@@ -49,21 +49,21 @@ const BlockSetForm = () => {
       {Auth.loggedIn() ? (
         <form onSubmit={handleFormSubmit}>
           <div>
-            <label htmlFor="setName">Set Name:</label>
+            <label htmlFor="buildName">Set Name:</label>
             <input
               type="text"
-              id="setName"
+              id="buildName"
               value={setName}
-              onChange={(e) => setSetName(e.target.value)}
+              onChange={(e) => setBuildName(e.target.value)}
             />
           </div>
           <div>
-            <label htmlFor="setNumber">Set Number:</label>
+            <label htmlFor="buildNumber">Set Number:</label>
             <input
               type="text"
-              id="setNumber"
+              id="buildNumber"
               value={setNumber}
-              onChange={(e) => setSetNumber(e.target.value)}
+              onChange={(e) => setBuildNumber(e.target.value)}
             />
           </div>
           <div>
@@ -71,7 +71,7 @@ const BlockSetForm = () => {
             <textarea
               id="description"
               value={description}
-              onChange={(e) => setDescription(e.target.value)}
+              onChange={(e) => buildDescription(e.target.value)}
             ></textarea>
           </div>
           <div>
@@ -80,7 +80,7 @@ const BlockSetForm = () => {
               type="text"
               id="image"
               value={image}
-              onChange={(e) => setImage(e.target.value)}
+              onChange={(e) => buildImage(e.target.value)}
             />
           </div>
           <button type="submit">Share Build</button>
@@ -96,4 +96,4 @@ const BlockSetForm = () => {
   );
 };
 
-export default BlockSetForm;
+export default BlockBuildForm;
