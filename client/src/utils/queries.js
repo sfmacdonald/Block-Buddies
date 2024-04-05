@@ -6,33 +6,41 @@ export const QUERY_USER = gql`
       _id
       username
       email
-      thoughts {
+      builds {
         _id
-        thoughtText
+        buildText
         createdAt
       }
     }
   }
 `;
 
-export const QUERY_THOUGHTS = gql`
-  query getThoughts {
+export const QUERY_BUILDS = gql`
+  query getBuilds {
     thoughts {
       _id
-      thoughtText
-      thoughtAuthor
-      createdAt
+      buildName
+      buildNumber
+      buildPieces
+      buildTheme
+      builderAge
+      buildRating
+      buildAuthor
     }
   }
 `;
 
-export const QUERY_SINGLE_THOUGHT = gql`
-  query getSingleThought($thoughtId: ID!) {
-    thought(thoughtId: $thoughtId) {
+export const QUERY_SINGLE_BUILD = gql`
+  query getSingleBuild($buildId: ID!) {
+    build(buildId: $buildId) {
       _id
-      thoughtText
-      thoughtAuthor
-      createdAt
+      buildName
+      buildNumber
+      buildPieces
+      buildTheme
+      builderAge
+      buildRating
+      buildAuthor
       comments {
         _id
         commentText
@@ -49,22 +57,26 @@ export const QUERY_ME = gql`
       _id
       username
       email
-      thoughts {
+      builds {
         _id
-        thoughtText
-        thoughtAuthor
-        createdAt
+        buildName
+        buildNumber
+        buildPieces
+        buildTheme
+        builderAge
+        buildRating
+        buildAuthor
       }
     }
   }
 `;
 
-export const QUERY_BLOCK_SETS = gql`
-  query getBlockSets {
-    blockSets {
+export const QUERY_BLOCK_BUILDS = gql`
+  query getBlockBuilds {
+    blockBuilds {
       _id
-      setName
-      setNumber
+      buildName
+      buildNumber
       description
       image
       author
