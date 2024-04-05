@@ -1,24 +1,24 @@
 const db = require('../config/connection');
-const { User, Thought } = require('../models');
+const { User, Set } = require('../models');
 const userSeeds = require('./userSeeds.json');
-const thoughtSeeds = require('./thoughtSeeds.json');
+const setSeeds = require('./setSeeds.json');
 const cleanDB = require('./cleanDB');
 
 db.once('open', async () => {
   try {
-    await cleanDB('Thought', 'thoughts');
+    await cleanDB('Set', 'sets');
 
     await cleanDB('User', 'users');
 
     await User.create(userSeeds);
 
-    for (let i = 0; i < thoughtSeeds.length; i++) {
-      const { _id, thoughtAuthor } = await Thought.create(thoughtSeeds[i]);
+    for (let i = 0; i < setSeeds.length; i++) {
+      const { _id, setAuthor } = await Set.create(setSeeds[i]);
       const user = await User.findOneAndUpdate(
-        { username: thoughtAuthor },
+        { username: setAuthor },
         {
           $addToSet: {
-            thoughts: _id,
+            sets: _id,
           },
         }
       );

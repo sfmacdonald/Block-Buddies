@@ -35,6 +35,11 @@ const setSchema = new Schema({
     required: false,
     trim: true,
   },
+  setAuthor: {
+    type: String,
+    required: true,
+    trim: true,
+  },
   comments: [
     {
       commentText: {
