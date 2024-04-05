@@ -1,5 +1,5 @@
 
-const { User, Thought } = require('../models');
+const { User, Build } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
 
 
@@ -55,10 +55,10 @@ const resolvers = {
 
       return { token, user };
     },
-    addBuild: async (parent, { buildText }, context) => {
+    addBuild: async (parent, { buildName, buildNumber, buildPieces, buildTheme, builderAge, buildRating }, context) => {
       if (context.user) {
         const build = await Build.create({
-          buildText,
+          buildName, buildNumber, buildPieces, buildTheme, builderAge, buildRating,
           buildAuthor: context.user.username,
         });
 
@@ -95,13 +95,13 @@ const resolvers = {
       if (context.user) {
         const build = await Build.findOneAndDelete({
           _id: buildId,
-          buildtAuthor: context.user.username,
+          buildAuthor: context.user.username,
         });
 
 
         await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $pull: { builds: tbuild._id } }
+          { $pull: { builds: build._id } }
         );
 
 
