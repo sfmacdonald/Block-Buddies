@@ -1,4 +1,5 @@
 const User = require('./User');
-const Set = require('./Set');
+const Build = require('./Build');
 
-module.exports = { User, Set };
+module.exports = { User, Build };
+

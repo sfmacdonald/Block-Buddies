@@ -1,25 +1,25 @@
 const { Schema, model } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 
-const setSchema = new Schema({
-  setName: {
+const buildSchema = new Schema({
+  buildName: {
     type: String,
     required: 'What is the name of the set you would like to add?',
     minlength: 1,
     maxlength: 280,
     trim: true,
   },
-  setNumber: {
+  buildNumber: {
     type: String,
     required: false,
     trim: true,
   },
-  setPieces: {
+  buildPieces: {
     type: String,
     required: 'How many pieces are in the set?',
     trim: true,
   },
-  setTheme: {
+  buildTheme: {
     type: String,
     required: false,
     trim: true,
@@ -30,12 +30,12 @@ const setSchema = new Schema({
     maxlength: 3,
     trim: true,
   },
-  setRating: {
+  buildRating: {
     type: Number,
     required: false,
     trim: true,
   },
-  setAuthor: {
+  buildAuthor: {
     type: String,
     required: true,
     trim: true,
@@ -61,6 +61,6 @@ const setSchema = new Schema({
   ],
 });
 
-const Set = model('Set', setSchema);
+const Build = model('Build', buildSchema);
 
-module.exports = Set;
+module.exports = Build;
