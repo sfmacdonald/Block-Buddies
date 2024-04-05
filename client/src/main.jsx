@@ -31,8 +31,8 @@ const router = createBrowserRouter([
         path: '/me',
         element: <Profile />
       }, {
-        path: '/thoughts/:thoughtId',
-        element: <SingleThought />
+        path: '/builds/:buildId',
+        element: <SingleBuild />
       }
     ]
   },
