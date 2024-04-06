@@ -122,3 +122,4 @@ When accessed, the initial landing page should reflect the following image:
 ## Stakeholder Presentation
 
 Attached is the stakeholder slide deck presentation with the final MVP product outline:
+https://docs.google.com/presentation/d/1JzAxV1T6j6g7kOoXbepve94suHHQvUDWLSl8d4zHmVs/edit#slide=id.p
