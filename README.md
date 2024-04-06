@@ -42,8 +42,6 @@ As a passionate Lego set builder, I want a platform where I can track my complet
 4. **Interaction with Other Users:**
 - Users should be able to view and comment on other users' wishlists and previous builds.
 - Comments on wishlists and builds should be visible to other users.
-- Integration with Rebrickable API:
-    - The application should integrate with the Rebrickable API to fetch information about Lego sets, including set details and ratings.
 
 5. **User Interface:**
 - The user interface should be intuitive and user-friendly, allowing easy navigation and interaction with the application.
@@ -58,8 +56,6 @@ As a passionate Lego set builder, I want a platform where I can track my complet
 3. **Build Tracking:** Add previously built (Brick Archive) or in-progress (Construction Zone) Lego sets. Rate builds based on ease of building and fun factor.
 
 4. **Interaction with Other Users:** View and comment on other users' wishlists and builds.
-
-5. **Integration with Rebrickable API:** Fetch information about Lego sets from the Rebrickable API, including set details and ratings.
 
 ## Testing
 TBD
@@ -126,9 +122,3 @@ When accessed, the initial landing page should reflect the following image:
 ## Stakeholder Presentation
 
 Attached is the stakeholder slide deck presentation with the final MVP product outline:
-
-Future state ideas:
-- Connect to API to make user experience better and return results
-- Custom avatars for user profiles
-- Use Lego Stubs for ratings instead of stars
-- Recommend builds to users based off their profile (previous builds, wishlist, age)
