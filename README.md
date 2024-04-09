@@ -39,11 +39,7 @@ As a passionate Lego set builder, I want a platform where I can track my complet
 - Users should be able to add Lego sets they have previously built or are currently in progress.
 - Users should be able to rate their builds based on ease of building and fun factor.
 
-4. **Interaction with Other Users:**
-- Users should be able to view and comment on other users' wishlists and previous builds.
-- Comments on wishlists and builds should be visible to other users.
-
-5. **User Interface:**
+4. **User Interface:**
 - The user interface should be intuitive and user-friendly, allowing easy navigation and interaction with the application.
 - Users should have clear options for managing their profiles, wishlists, and builds.
 
@@ -71,7 +67,7 @@ The following members of the 2023-2024 ASU Coding Bootcamp participated on this 
 ## Technologies
 
 - MERN Stack (MongoDB, Express.js, React, Node.js)
-- Material UI
+- Material UI (installed but not leveraged in MVP)
 - Rebrickable API: https://rebrickable.com/api/v3/docs/?key=
 
 ## License
@@ -105,9 +101,9 @@ TBD
 
 **Day 3 4/2/24:** Succesfully connected project to Heroku after abandoning Render. Also connected to MongoDB Atlas. Group agreed to abandon use of API - will allow users to manually create database with prompts and will add API as future state idea.
 
-**Day 4 4/4/24:**
+**Day 4 4/4/24:** Troubleshoot issues with the server and client side rendering via Heroku. 
 
-**Day 5 4/8/24:**
+**Day 5 4/8/24:** Continued troubleshooting Heroku deployment issues (issue now resolved) CSS updates to style front-end for project. Connect forms to pages.
 
 **Day 6 4/9/24:** Stakeholder Presentation & Demo
 
