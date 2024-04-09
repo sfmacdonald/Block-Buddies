@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const QUERY_USER = gql`
   query user($username: String!) {
@@ -78,7 +78,7 @@ export const QUERY_ME = gql`
 
 export const QUERY_BLOCK_BUILDS = gql`
   query getBlockBuilds {
-    blockBuilds {
+    builds {
       _id
       buildName
       number
@@ -90,4 +90,3 @@ export const QUERY_BLOCK_BUILDS = gql`
     }
   }
 `;
-

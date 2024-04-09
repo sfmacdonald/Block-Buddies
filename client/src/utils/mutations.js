@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const LOGIN_USER = gql`
   mutation login($email: String!, $password: String!) {
@@ -6,7 +6,7 @@ export const LOGIN_USER = gql`
       token
       user {
         _id
-        username 
+        username
       }
     }
   }
@@ -25,8 +25,8 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_BUILD = gql`
-  mutation addBuild($buildName: String!, $number: String!, $pieces: String!, $theme: String!, $builderAge: String!, $rating: Number!) {
-    addBuild(buildName: $buildName, number: $number, pieces: $pieces, theme: $theme, builderAge: $builderAge, rating: $rating) {
+  mutation addBuild($input: BuildInput) {
+    addBuild(input: $input) {
       _id
       buildName
       number
@@ -34,7 +34,7 @@ export const ADD_BUILD = gql`
       theme
       builderAge
       rating
-      builderAuthor
+      buildAuthor
     }
   }
 `;
@@ -56,8 +56,20 @@ export const ADD_COMMENT = gql`
 `;
 
 export const ADD_BLOCK_BUILD = gql`
-  mutation addBlockBuild($buildName: String!, $buildNumber: String!, $description: String!, $image: String!, $author: String!) {
-    addBlockBuild(buildName: $buildName, buildNumber: $buildNumber, description: $description, image: $image, author: $author) {
+  mutation addBlockBuild(
+    $buildName: String!
+    $buildNumber: String!
+    $description: String!
+    $image: String!
+    $author: String!
+  ) {
+    addBlockBuild(
+      buildName: $buildName
+      buildNumber: $buildNumber
+      description: $description
+      image: $image
+      author: $author
+    ) {
       _id
       buildName
       buildNumber
@@ -67,4 +79,3 @@ export const ADD_BLOCK_BUILD = gql`
     }
   }
 `;
-
