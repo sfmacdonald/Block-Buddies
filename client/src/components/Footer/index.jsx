@@ -15,7 +15,7 @@ const Footer = () => {
           </button>
         )}
         <h4>
-          We did it! We made it to the end of Block Buddies!
+          Thanks for building with Block Buddies!
         </h4>
       </div>
     </footer>
