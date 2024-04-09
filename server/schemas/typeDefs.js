@@ -15,7 +15,7 @@ const typeDefs = `
    pieces: String
    theme: String
    builderAge: String
-   rating: Number
+   rating: Int
    buildAuthor: String
    comments: [Comment]!
  }
