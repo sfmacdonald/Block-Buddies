@@ -41,9 +41,9 @@ const Profile = () => {
         </h2>
 
         <div className="col-12 col-md-10 mb-5">
-          <BlockList
-            thoughts={user.thoughts}
-            title={`${user.username}'s thoughts...`}
+          <BuildList
+            builds={user.builds}
+            title={`${user.username}'s builds...`}
             showTitle={false}
             showUsername={false}
           />
@@ -53,7 +53,7 @@ const Profile = () => {
             className="col-12 col-md-10 mb-3 p-3"
             style={{ border: '1px dotted #1a1a1a' }}
           >
-            <BlockForm />
+            <BlockFormForm />
           </div>
         )}
       </div>
