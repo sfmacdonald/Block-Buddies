@@ -2,18 +2,20 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 
-import { ADD_BLOCK_BUILD } from '../../utils/mutations';
+import { ADD_BUILD } from '../../utils/mutations';
 import { QUERY_BLOCK_BUILDS } from '../../utils/queries';
 
 import Auth from '../../utils/auth';
 
-const BlockBuildForm = () => {
+const BlockForm = () => {
   const [buildName, setBuildName] = useState('');
-  const [buildNumber, setBuildNumber] = useState('');
-  const [description, setDescription] = useState('');
-  const [image, setImage] = useState('');
+  const [number, setNumber] = useState('');
+  const [pieces, setPieces] = useState('');
+  const [theme, setTheme] = useState('');
+  const [builderAge, setBuilderAge] = useState('');
+  const [rating, setRating] = useState('');
 
-  const [addBlockBuild, { error }] = useMutation(ADD_BLOCK_BUILD, {
+  const [addBlockBuild, { error }] = useMutation(ADD_BUILD, {
     refetchQueries: [
       { query: QUERY_BLOCK_BUILDS }
     ]
@@ -23,20 +25,24 @@ const BlockBuildForm = () => {
     event.preventDefault();
 
     try {
-      const { data } = await addBlockSet({
+      const { data } = await addBlockBuild({
         variables: {
           buildName,
-          buildNumber,
-          description,
-          image,
+          number,
+          pieces,
+          theme,
+          builderAge,
+          rating,
           author: Auth.getProfile().data.username
         },
       });
 
       setBuildName('');
-      setBuildNumber('');
-      setDescription('');
-      setImage('');
+      setNumber('');
+      setPieces('');
+      setTheme('');
+      setBuilderAge('');
+      setRating('');
     } catch (err) {
       console.error(err);
     }
@@ -53,34 +59,52 @@ const BlockBuildForm = () => {
             <input
               type="text"
               id="buildName"
-              value={setName}
+              value={buildName}
               onChange={(e) => setBuildName(e.target.value)}
             />
           </div>
           <div>
-            <label htmlFor="buildNumber">Set Number:</label>
+            <label htmlFor="number">Build Number:</label>
             <input
               type="text"
-              id="buildNumber"
-              value={setNumber}
-              onChange={(e) => setBuildNumber(e.target.value)}
+              id="number"
+              value={number}
+              onChange={(e) => setNumber(e.target.value)}
             />
           </div>
           <div>
-            <label htmlFor="description">Description:</label>
+            <label htmlFor="pieces">Build Pieces:</label>
             <textarea
-              id="description"
-              value={description}
-              onChange={(e) => buildDescription(e.target.value)}
+              id="pieces"
+              value={pieces}
+              onChange={(e) => setPieces(e.target.value)}
             ></textarea>
           </div>
           <div>
-            <label htmlFor="image">Image URL:</label>
+            <label htmlFor="theme">Build Theme:</label>
             <input
               type="text"
-              id="image"
-              value={image}
-              onChange={(e) => buildImage(e.target.value)}
+              id="theme"
+              value={theme}
+              onChange={(e) => setTheme(e.target.value)}
+            />
+          </div>
+          <div>
+            <label htmlFor="builderAge">Builder Age:</label>
+            <input
+              type="text"
+              id="builderAge"
+              value={builderAge}
+              onChange={(e) => setBuilderAge(e.target.value)}
+            />
+          </div>
+          <div>
+            <label htmlFor="rating">Build Rating:</label>
+            <input
+              type="text"
+              id="rating"
+              value={rating}
+              onChange={(e) => setRating(e.target.value)}
             />
           </div>
           <button type="submit">Share Build</button>
@@ -96,4 +120,4 @@ const BlockBuildForm = () => {
   );
 };
 
-export default BlockBuildForm;
+export default BlockForm;

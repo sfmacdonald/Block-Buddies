@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-const BuildList = ({
+const BlockList = ({
   builds,
   title,
   showTitle = true,
@@ -50,4 +50,4 @@ const BuildList = ({
   );
 };
 
-export default BuildList;
+export default BlockList;
