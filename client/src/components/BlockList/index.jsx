@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const BlockList = ({
   builds,
@@ -9,6 +9,7 @@ const BlockList = ({
   if (!builds.length) {
     return <h3>No builds Yet</h3>;
   }
+  console.log(builds);
 
   return (
     <div>
@@ -22,21 +23,21 @@ const BlockList = ({
                   className="text-light"
                   to={`/profiles/${build.buildAuthor}`}
                 >
+                  {console.log(build.buildAuthor)}
                   {build.buildAuthor} <br />
-                  <span style={{ fontSize: '1rem' }}>
-                    posted this on {build.createdAt}
-                  </span>
                 </Link>
               ) : (
                 <>
-                  <span style={{ fontSize: '1rem' }}>
-                    You posted this on {build.createdAt}
-                  </span>
+                  <span style={{ fontSize: "1rem" }}>{build.buildName}</span>
                 </>
               )}
             </h4>
             <div className="card-body bg-light p-2">
-              <p>{build.buildText}</p>
+              <p>Number:{build.number}</p>
+              <p>Pieces:{build.pieces}</p>
+              <p>Theme: {build.theme}</p>
+              <p>Age: {build.builderAge}</p>
+              <p>Rating: {build.rating}</p>
             </div>
             <Link
               className="btn btn-primary btn-block btn-squared"

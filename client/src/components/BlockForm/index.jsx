@@ -1,24 +1,22 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useMutation } from '@apollo/client';
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { useMutation } from "@apollo/client";
 
-import { ADD_BUILD } from '../../utils/mutations';
-import { QUERY_BLOCK_BUILDS } from '../../utils/queries';
+import { ADD_BUILD } from "../../utils/mutations";
+import { QUERY_BLOCK_BUILDS } from "../../utils/queries";
 
-import Auth from '../../utils/auth';
+import Auth from "../../utils/auth";
 
 const BlockForm = () => {
-  const [buildName, setBuildName] = useState('');
-  const [number, setNumber] = useState('');
-  const [pieces, setPieces] = useState('');
-  const [theme, setTheme] = useState('');
-  const [builderAge, setBuilderAge] = useState('');
-  const [rating, setRating] = useState('');
+  const [buildName, setBuildName] = useState("");
+  const [number, setNumber] = useState("");
+  const [pieces, setPieces] = useState("");
+  const [theme, setTheme] = useState("");
+  const [builderAge, setBuilderAge] = useState("");
+  const [rating, setRating] = useState("");
 
   const [addBlockBuild, { error }] = useMutation(ADD_BUILD, {
-    refetchQueries: [
-      { query: QUERY_BLOCK_BUILDS }
-    ]
+    refetchQueries: [{ query: QUERY_BLOCK_BUILDS }],
   });
 
   const handleFormSubmit = async (event) => {
@@ -27,23 +25,25 @@ const BlockForm = () => {
     try {
       const { data } = await addBlockBuild({
         variables: {
-          buildName,
-          number,
-          pieces,
-          theme,
-          builderAge,
-          rating,
-          author: Auth.getProfile().data.username
+          input: {
+            buildName,
+            number,
+            pieces,
+            theme,
+            builderAge,
+            rating,
+          },
         },
       });
 
-      setBuildName('');
-      setNumber('');
-      setPieces('');
-      setTheme('');
-      setBuilderAge('');
-      setRating('');
+      setBuildName("");
+      setNumber("");
+      setPieces("");
+      setTheme("");
+      setBuilderAge("");
+      setRating("");
     } catch (err) {
+      console.group("ProductInfo");
       console.error(err);
     }
   };
@@ -112,7 +112,7 @@ const BlockForm = () => {
         </form>
       ) : (
         <p>
-          You need to be logged in to share builds. Please{' '}
+          You need to be logged in to share builds. Please{" "}
           <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
         </p>
       )}
