@@ -7,7 +7,7 @@ import SingleRandomBuild from '../components/singleRandomBuild';
 const Home = () => {
   return (
     <div>
-      <h1>Block Search</h1>
+      <h1>Add a New Build!</h1>
 
       {/* Search Form */}
       <SearchForm />

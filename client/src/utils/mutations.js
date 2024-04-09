@@ -25,16 +25,16 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_BUILD = gql`
-  mutation addBuild($buildText: String!) {
-    addBuild(buildText: $buildText) {
+  mutation addBuild($buildName: String!, $number: String!, $pieces: String!, $theme: String!, $builderAge: String!, $rating: Number!) {
+    addBuild(buildName: $buildName, number: $number, pieces: $pieces, theme: $theme, builderAge: $builderAge, rating: $rating) {
       _id
-      buildText
-      buildAuthor
-      createdAt
-      comments {
-        _id
-        commentText
-      }
+      buildName
+      number
+      pieces
+      theme
+      builderAge
+      rating
+      builderAuthor
     }
   }
 `;
