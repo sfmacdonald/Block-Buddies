@@ -13,6 +13,11 @@ const SearchForm = ({ fetchSearchResults }) => {
         fetchSearchResults(searchTerm);
     };
 
+    const handleClearResults = () => {
+        setSearchTerm('');
+        fetchSearchResults('');
+    };
+
     return (
         <form onSubmit={handleSearchSubmit}>
             <input
@@ -22,8 +27,12 @@ const SearchForm = ({ fetchSearchResults }) => {
                 onChange={handleSearchInputChange}
             />
             <button type="submit">Search</button>
+            <button type="button" onClick={handleClearResults}>Clear</button>
         </form>
     );
-}
+};
+
+
+
 
 export default SearchForm;
