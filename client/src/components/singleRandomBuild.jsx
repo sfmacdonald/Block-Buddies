@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 
-const SingleRandomBuild = ({ builds }) => {
+const SingleRandomBuild = ({ builds = [] }) => {
     // Select a random build from the builds array
     const randomBuild = builds[Math.floor(Math.random() * builds.length)];
 

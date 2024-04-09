@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const uri = process.env.MONGODB_URI;
 
 // Connect to MongoDB using the defined URI
-mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(uri || 'mongodb://127.0.0.1:27017/block-buddies', { useNewUrlParser: true, useUnifiedTopology: true });
 
 // Log MongoDB connection status
 const db = mongoose.connection;
