@@ -115,6 +115,9 @@ The live URL for the working website deployed via Heroku is https://block-buddie
 
 When accessed, the initial landing page should reflect the following image:
 
+![Home](<./img/HOME.png>)
+**Homepage**
+
 ## Stakeholder Presentation
 
 Attached is the stakeholder slide deck presentation with the final MVP product outline:
